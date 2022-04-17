@@ -35,7 +35,7 @@ diff = endvalue - startvalue
 
 
 def run(cores, numero_core, file_value):
-    value_by_core = diff // int(cores, 16)
+    value_by_core = diff // cores
     LOG_EVERY_N = 100000
     start_time = dt.datetime.today().timestamp()
     start_value_actual_core = (value_by_core * numero_core) + startvalue
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     obj = go()
     #obj.num_of_cores()
     try:
-        for numero_core in range(int(obj.cores,16)):
+        for numero_core in range(obj.cores):
             file_value = pd.read_csv(open('bit.txt', 'r'))
             p = multiprocessing.Process(
                 target=run, args=(obj.cores, numero_core, file_value))
