@@ -16,7 +16,7 @@ import bit
 class go():
     def __init__(self):
         self.num_cpu = os.cpu_count()
-        self.cores = 12
+        self.cores = 4
 
     def num_of_cores(self):
         self.cores = input(
@@ -77,7 +77,7 @@ def run(cores, numero_core, file_value):
 if __name__ == "__main__":
     jobs = []
     obj = go()
-    obj.num_of_cores()
+    #obj.num_of_cores()
     try:
         for numero_core in range(int(obj.cores,16)):
             file_value = pd.read_csv(open('bit.txt', 'r'))
